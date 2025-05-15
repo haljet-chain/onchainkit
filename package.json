@@ -29,5 +29,11 @@
     "typescript": "~5.4.0",
     "typescript-eslint": "^8.26.1"
   },
-  "packageManager": "pnpm@10.6.3"
+  "packageManager": "pnpm@10.6.3",
+  "dependencies": {
+    "@farcaster/auth-client": "^0.3.0",
+    "@farcaster/auth-kit": "^0.6.0",
+    "qr-code-styling": "^1.9.2",
+    "viem": "^2.26.3"
+  }
 }
