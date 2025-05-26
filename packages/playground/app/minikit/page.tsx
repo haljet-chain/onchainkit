@@ -10,10 +10,12 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import Snake, { SCHEMA_UID } from './components/snake';
 import { useAccount } from 'wagmi';
 import Check from './svg/Check';
+import { useFarcasterAuth } from './components/LoginModal';
 
 export default function App() {
   const { setFrameReady, isFrameReady, context } = useMiniKit();
   const [frameAdded, setFrameAdded] = useState(false);
+  const { isFarcasterConnected, farcasterUser } = useFarcasterAuth();
 
   const addFrame = useAddFrame();
   const openUrl = useOpenUrl();
@@ -73,6 +75,10 @@ export default function App() {
                   />
                 </Name>
               </Identity>
+            ) : isFarcasterConnected ? (
+              <div className="pt-1 pl-2 font-semibold text-sm">
+                {farcasterUser.displayName} (Farcaster)
+              </div>
             ) : (
               <div className="pt-1 pl-2 font-semibold text-gray-500 text-sm">
                 NOT CONNECTED
